@@ -49,7 +49,7 @@ public class Filme {
 
 	@Override
 	public String toString() {
-		return "Filme{" + "nome=" + nome + ", estoque=" + estoque + ", precoLocacao=" + precoLocacao + '}';
+		return "Filme{\n\t" + "nome=" + nome + ",\n\testoque=" + estoque + ",\n\tprecoLocacao=" + precoLocacao + "\n\t}";
 	}
 
 	@Override

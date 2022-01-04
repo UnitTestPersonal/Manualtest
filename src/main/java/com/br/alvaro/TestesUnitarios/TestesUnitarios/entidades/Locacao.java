@@ -115,7 +115,7 @@ public class Locacao {
 
 	@Override
 	public String toString() {
-		return "Locacao{" + "usuario=" + usuario + ", filme=" + filme + ", dataLocacao=" + dataLocacao + ", dataRetorno=" + dataRetorno + ", valor=" + valor + '}';
+		return "Locacao{\n" + "usuario=" + usuario + ",\n filme=" + filme + ",\n dataLocacao=" + dataLocacao + ",\n dataRetorno=" + dataRetorno + ",\n valor=" + valor + "\n}";
 	}
 	
 	

@@ -56,7 +56,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario{" + "nome=" + nome + '}';
+		return "Usuario{\n\t" + "nome=" + nome + "\n\t}";
 	}
 	
 	
