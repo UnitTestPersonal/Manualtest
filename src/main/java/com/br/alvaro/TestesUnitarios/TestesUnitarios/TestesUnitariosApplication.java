@@ -33,19 +33,4 @@ public class TestesUnitariosApplication {
 				System.out.println(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
 				System.out.println(locacao.getValor() == 11.0);
 		}
-		
-		@Test
-		public void teste(){
-			//cenário.
-			Usuario usuario = new Usuario("Alvaro Pereira do Nascimento");
-			Filme filme = new Filme("A bela e a Fera", 100, 10.00);
-			LocacaoService locacaoService = new LocacaoService();
-			//ação.
-			Locacao locacao = locacaoService.alugarFilme(usuario, filme);
-			//verificação.
-			System.out.println(locacao.toString());
-			Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
-			Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
-			Assert.assertTrue(locacao.getValor() == 10.0);
-		}
 }
