@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest()
 class TestesUnitariosApplicationTests {
 
 	@Test
@@ -29,6 +29,6 @@ class TestesUnitariosApplicationTests {
 		System.out.println(locacao.toString());
 		Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
 		Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
-		Assert.assertTrue(locacao.getValor() == 10.0);
+		Assert.assertEquals( 10.0, locacao.getValor(), 0.01);
 	}
 }
