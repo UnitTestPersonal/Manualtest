@@ -23,6 +23,7 @@ public class AssertTest {
 @Rule
 public  ErrorCollector error  = new ErrorCollector();
 
+@Test
 	public void Test(){
 		Assert.assertTrue(false);
 		error.checkThat(true, Matchers.is(true));
