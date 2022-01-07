@@ -6,34 +6,28 @@
 package br.ce.wcaquino.servicos;
 
 import junit.framework.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 /**
  *
  * @author Alvaro
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrdemTest extends Object {
 
 	public static int counter = 0;
 	
-	//teste pode acusar erro devido a problema de ordem
-	//@Test
+	@Test
 	public void inicia(){
 		counter ++;
 		Assert.assertEquals(1, counter);
 	}
 	
-	//teste pode acusar erro devido a problema de ordem
-	//@Test
+	@Test
 	public void verifica(){
 		counter++;
 		Assert.assertEquals(2, counter);
-	}
-	
-	//força odenação de teste mas gera problema de rastreabilidade.
-	@Test
-	public void testeGeral(){
-		inicia();
-		verifica();
 	}
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="br.ce.wcaquino.servicos.OrdemTest" time="0" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="br.ce.wcaquino.servicos.OrdemTest" time="0.018" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.1+12-LTS"/>
@@ -61,5 +61,6 @@
     <property name="java.vendor.version" value="Corretto-17.0.1.12.1"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.ce.wcaquino.servicos.OrdemTest" name="testeGeral" time="0"/>
+  <testcase classname="br.ce.wcaquino.servicos.OrdemTest" name="inicia" time="0.018"/>
+  <testcase classname="br.ce.wcaquino.servicos.OrdemTest" name="verifica" time="0"/>
 </testsuite>
