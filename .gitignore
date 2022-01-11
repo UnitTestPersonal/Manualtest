@@ -1,6 +1,4 @@
 
-target/surefire-reports/AssertTest.txt
-target/surefire-reports/br.ce.wcaquino.servicos.LocacaoServiceTest.txt
-target/surefire-reports/br.ce.wcaquino.servicos.OrdemTest.txt
-target/surefire-reports/TEST-br.ce.wcaquino.servicos.LocacaoServiceTest.xml
-target/surefire-reports/TEST-br.ce.wcaquino.servicos.OrdemTest.xml
+target/**
+target/maven-status/**
+target/surefire-reports/**
