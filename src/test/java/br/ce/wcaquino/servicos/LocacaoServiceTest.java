@@ -22,7 +22,7 @@ import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -65,7 +65,7 @@ public class LocacaoServiceTest {
   public void testeLocacao() throws Exception {
 		//cenario
 		Usuario usuario = new Usuario("Usuario 1");
-		HashSet<Filme> filme = new HashSet<>(
+		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
 						new Filme("Filme 2", 1, 4.0),
 						new Filme("Filme 1", 1, 5.0)
@@ -84,9 +84,10 @@ public class LocacaoServiceTest {
 	public void testLocacao_filmeSemEstoque() throws Exception{
 		//cenario
 		Usuario usuario = new Usuario("Usuario 1");
-    HashSet<Filme> filme = new HashSet<>(
+    LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 2", 0, 4.0),new Filme("Filme 1", 1, 5.0)));
+						new Filme("Filme 2", 0, 4.0),
+						new Filme("Filme 1", 1, 5.0)));
 
 		//acao
 		service.alugarFilme(usuario, filme);
@@ -95,9 +96,10 @@ public class LocacaoServiceTest {
 	@Test
 	public void testLocacao_usuarioVazio() throws FilmeSemEstoqueException{
 		//cenario
-		HashSet<Filme> filme = new HashSet<>(
+		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 2", 0, 4.0),new Filme("Filme 1", 1, 5.0)));
+						new Filme("Filme 2", 0, 4.0),
+						new Filme("Filme 1", 1, 5.0)));
 		
 		//acao
 		try {
@@ -119,5 +121,116 @@ public class LocacaoServiceTest {
 		
 		//acao
 		service.alugarFilme(usuario, null);
+	}
+	@Test
+  public void testeLocacao25desconto() throws Exception {
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
+				Arrays.asList(
+						new Filme("Filme 1", 1, 4.0),
+						new Filme("Filme 2", 1, 5.0),
+						new Filme("Filme 3", 1, 6.0)
+				));
+		
+		//acao
+		Locacao locacao = service.alugarFilme(usuario, filme);
+			
+		//verificacao
+		error.checkThat(locacao.getValor(), is(equalTo(13.5)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+	}
+	
+	
+	@Test
+  public void testeLocacao50desconto() throws Exception {
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
+				Arrays.asList(
+						new Filme("Filme 1", 1, 4.0),
+						new Filme("Filme 2", 1, 5.0),
+						new Filme("Filme 3", 1, 6.0),
+						new Filme("Filme 4", 1, 7.0)
+				));
+		
+		//acao
+		Locacao locacao = service.alugarFilme(usuario, filme);
+			
+		//verificacao
+		error.checkThat(locacao.getValor(), is(equalTo(17.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+	}
+	
+	@Test
+  public void testeLocacao75desconto() throws Exception {
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
+				Arrays.asList(
+						new Filme("Filme 1", 1, 4.0),
+						new Filme("Filme 2", 1, 5.0),
+						new Filme("Filme 3", 1, 6.0),
+						new Filme("Filme 4", 1, 7.0),
+						new Filme("Filme 5", 1, 8.0)
+				));
+		
+		//acao
+		Locacao locacao = service.alugarFilme(usuario, filme);
+			
+		//verificacao
+		error.checkThat(locacao.getValor(), is(equalTo(19.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+	}
+	
+	@Test
+  public void testeLocacao100desconto() throws Exception {
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
+				Arrays.asList(
+						new Filme("Filme 1", 1, 4.0),
+						new Filme("Filme 2", 1, 5.0),
+						new Filme("Filme 3", 1, 6.0),
+						new Filme("Filme 4", 1, 7.0),
+						new Filme("Filme 5", 1, 8.0),
+						new Filme("Filme 6", 1, 9.0)
+				));
+		
+		//acao
+		Locacao locacao = service.alugarFilme(usuario, filme);
+			
+		//verificacao
+		error.checkThat(locacao.getValor(), is(equalTo(19.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+	}
+	@Test
+  public void testeLocacao100desconto9Itens() throws Exception {
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
+				Arrays.asList(
+						new Filme("Filme 1", 1, 4.0),
+						new Filme("Filme 2", 1, 5.0),
+						new Filme("Filme 3", 1, 6.0),
+						new Filme("Filme 4", 1, 7.0),
+						new Filme("Filme 5", 1, 8.0),
+						new Filme("Filme 6", 1, 9.0),
+						new Filme("Filme 7", 1, 10.0),
+						new Filme("Filme 8", 1, 11.0),
+						new Filme("Filme 9", 1, 12.0)
+				));
+		
+		//acao
+		Locacao locacao = service.alugarFilme(usuario, filme);
+			
+		//verificacao
+		error.checkThat(locacao.getValor(), is(equalTo(52.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
 	}
 }
