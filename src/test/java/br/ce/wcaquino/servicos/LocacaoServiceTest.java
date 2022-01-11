@@ -21,6 +21,8 @@ import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
+import java.util.Arrays;
+import java.util.HashSet;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -63,13 +65,17 @@ public class LocacaoServiceTest {
   public void testeLocacao() throws Exception {
 		//cenario
 		Usuario usuario = new Usuario("Usuario 1");
-		Filme filme = new Filme("Filme 1", 1, 5.0);
+		HashSet<Filme> filme = new HashSet<>(
+				Arrays.asList(
+						new Filme("Filme 2", 1, 4.0),
+						new Filme("Filme 1", 1, 5.0)
+				));
 		
 		//acao
 		Locacao locacao = service.alugarFilme(usuario, filme);
 			
 		//verificacao
-		error.checkThat(locacao.getValor(), is(equalTo(5.0)));
+		error.checkThat(locacao.getValor(), is(equalTo(9.0)));
 		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
 		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
 	}
@@ -78,8 +84,10 @@ public class LocacaoServiceTest {
 	public void testLocacao_filmeSemEstoque() throws Exception{
 		//cenario
 		Usuario usuario = new Usuario("Usuario 1");
-		Filme filme = new Filme("Filme 2", 0, 4.0);
-		
+    HashSet<Filme> filme = new HashSet<>(
+				Arrays.asList(
+						new Filme("Filme 2", 0, 4.0),new Filme("Filme 1", 1, 5.0)));
+
 		//acao
 		service.alugarFilme(usuario, filme);
 	}
@@ -87,7 +95,9 @@ public class LocacaoServiceTest {
 	@Test
 	public void testLocacao_usuarioVazio() throws FilmeSemEstoqueException{
 		//cenario
-		Filme filme = new Filme("Filme 2", 1, 4.0);
+		HashSet<Filme> filme = new HashSet<>(
+				Arrays.asList(
+						new Filme("Filme 2", 0, 4.0),new Filme("Filme 1", 1, 5.0)));
 		
 		//acao
 		try {

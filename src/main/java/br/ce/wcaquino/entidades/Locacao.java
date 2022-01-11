@@ -1,11 +1,13 @@
 package br.ce.wcaquino.entidades;
 
 import java.util.Date;
+import java.util.Objects;
+import java.util.Set;
 
 public class Locacao {
 
 	private Usuario usuario;
-	private Filme filme;
+	private Set<Filme> filme;
 	private Date dataLocacao;
 	private Date dataRetorno;
 	private Double valor;
@@ -34,12 +36,15 @@ public class Locacao {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-	public Filme getFilme() {
+
+	public Set<Filme> getFilme() {
 		return filme;
 	}
-	public void setFilme(Filme filme) {
+
+	public void setFilme(Set<Filme> filme) {
 		this.filme = filme;
 	}
+	
 
 	@Override
 	public int hashCode() {
@@ -64,23 +69,25 @@ public class Locacao {
 			return false;
 		}
 		final Locacao other = (Locacao) obj;
-		if (this.usuario != other.usuario && (this.usuario == null || !this.usuario.equals(other.usuario))) {
+		if (!Objects.equals(this.usuario, other.usuario)) {
 			return false;
 		}
-		if (this.filme != other.filme && (this.filme == null || !this.filme.equals(other.filme))) {
+		if (!Objects.equals(this.filme, other.filme)) {
 			return false;
 		}
-		if (this.dataLocacao != other.dataLocacao && (this.dataLocacao == null || !this.dataLocacao.equals(other.dataLocacao))) {
+		if (!Objects.equals(this.dataLocacao, other.dataLocacao)) {
 			return false;
 		}
-		if (this.dataRetorno != other.dataRetorno && (this.dataRetorno == null || !this.dataRetorno.equals(other.dataRetorno))) {
+		if (!Objects.equals(this.dataRetorno, other.dataRetorno)) {
 			return false;
 		}
-		if (this.valor != other.valor && (this.valor == null || !this.valor.equals(other.valor))) {
+		if (!Objects.equals(this.valor, other.valor)) {
 			return false;
 		}
 		return true;
 	}
+
+	
 
 	@Override
 	public String toString() {
