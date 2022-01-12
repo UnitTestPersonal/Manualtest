@@ -33,7 +33,7 @@ public class LocacaoService {
 		Date dataEntrega = new Date();
 		dataEntrega = adicionarDias(dataEntrega, 1);
 		locacao.setDataRetorno(dataEntrega);
-		
+		if(dataEntrega.getDay() == 0) dataEntrega = adicionarDias(dataEntrega, 1);
 		//Salvando a locacao...	
 		//TODO adicionar método para salvar
 		

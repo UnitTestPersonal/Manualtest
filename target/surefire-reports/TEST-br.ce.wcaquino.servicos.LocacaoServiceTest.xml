@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="br.ce.wcaquino.servicos.LocacaoServiceTest" time="155.234" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="br.ce.wcaquino.servicos.LocacaoServiceTest" time="0.138" errors="0" skipped="1">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.1+12-LTS"/>
@@ -14,7 +14,6 @@
     <property name="user.script" value=""/>
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="test" value="br.ce.wcaquino.servicos.LocacaoServiceTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
@@ -35,20 +34,17 @@
     <property name="java.class.version" value="61.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="jpda.listen" value="true"/>
     <property name="os.version" value="10.0"/>
     <property name="library.jansi.path" value="C:\Program Files\NetBeans-12.5\netbeans\java\maven\bin\..\lib\jansi-native"/>
-    <property name="jpda.address" value="58517"/>
     <property name="user.home" value="C:\Users\Alvaro"/>
     <property name="user.timezone" value="America/Sao_Paulo"/>
     <property name="file.encoding" value="Cp1252"/>
     <property name="java.specification.version" value="17"/>
     <property name="user.name" value="Alvaro"/>
     <property name="java.class.path" value="C:\Program Files\NetBeans-12.5\netbeans\java\maven\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
-    <property name="maven.surefire.debug" value="-agentlib:jdwp=transport=dt_socket,server=n,address=58517"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=br.ce.wcaquino.servicos.LocacaoServiceTest -DforkMode=once -Dmaven.surefire.debug=-agentlib:jdwp=transport=dt_socket,server=n,address=58517 -Djpda.listen=true -Djpda.address=58517 -Dmaven.ext.class.path=C:\Program Files\NetBeans-12.5\netbeans\java\maven-nblib\netbeans-eventspy.jar surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans-12.5\netbeans\java\maven-nblib\netbeans-eventspy.jar test"/>
     <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk17.0.1_12"/>
     <property name="user.language" value="pt"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -60,19 +56,25 @@
     <property name="file.separator" value="\"/>
     <property name="java.version.date" value="2021-10-19"/>
     <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-17/issues/"/>
-    <property name="forkMode" value="once"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="java.vendor.version" value="Corretto-17.0.1.12.1"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testeLocacao" time="155.197"/>
-  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testLocacao_FilmeVazio" time="0.021"/>
-  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testLocacao_usuarioVazio" time="0.002"/>
+  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testeLocacao" time="0.096"/>
+  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testLocacao_FilmeVazio" time="0.022"/>
+  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testLocacao_usuarioVazio" time="0.004"/>
   <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testeLocacao75desconto" time="0.002"/>
-  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testeLocacao100desconto9Itens" time="0.003"/>
+  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testeLocacao100desconto9Itens" time="0.002"/>
+  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="semDevolucaoDomingo" time="0.005">
+    <skipped/>
+    <system-out>antes
+6
+depois.
+</system-out>
+  </testcase>
   <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testLocacao_filmeSemEstoque" time="0.001"/>
   <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testeLocacao50desconto" time="0.002"/>
-  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testeLocacao25desconto" time="0.003"/>
+  <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testeLocacao25desconto" time="0.001"/>
   <testcase classname="br.ce.wcaquino.servicos.LocacaoServiceTest" name="testeLocacao100desconto" time="0.003"/>
 </testsuite>

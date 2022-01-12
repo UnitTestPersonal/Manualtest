@@ -4,8 +4,6 @@ package br.ce.wcaquino.servicos;
 
 import static br.ce.wcaquino.utils.DataUtils.isMesmaData;
 import static br.ce.wcaquino.utils.DataUtils.obterDataComDiferencaDias;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import java.util.Date;
@@ -21,12 +19,18 @@ import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
+import br.ce.wcaquino.utils.DataUtils;
+import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.LinkedHashSet;
+import org.hamcrest.CoreMatchers;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 
 public class LocacaoServiceTest {
 
@@ -62,7 +66,7 @@ public class LocacaoServiceTest {
 		}
 	
   @Test
-  public void testeLocacao() throws Exception {
+  public void testeLocacao() throws FilmeSemEstoqueException, LocadoraException  {
 		//cenario
 		Usuario usuario = new Usuario("Usuario 1");
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
@@ -75,13 +79,13 @@ public class LocacaoServiceTest {
 		Locacao locacao = service.alugarFilme(usuario, filme);
 			
 		//verificacao
-		error.checkThat(locacao.getValor(), is(equalTo(9.0)));
-		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
-		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+		error.checkThat(locacao.getValor(), CoreMatchers.is(CoreMatchers.equalTo(9.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
 	}
 	
 	@Test(expected = FilmeSemEstoqueException.class)
-	public void testLocacao_filmeSemEstoque() throws Exception{
+	public void testLocacao_filmeSemEstoque() throws  LocadoraException, FilmeSemEstoqueException{
 		//cenario
 		Usuario usuario = new Usuario("Usuario 1");
     LinkedHashSet<Filme> filme = new LinkedHashSet<>(
@@ -95,6 +99,8 @@ public class LocacaoServiceTest {
 	
 	@Test
 	public void testLocacao_usuarioVazio() throws FilmeSemEstoqueException{
+		
+    Assume.assumeFalse(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY));
 		//cenario
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
@@ -106,11 +112,10 @@ public class LocacaoServiceTest {
 			service.alugarFilme(null, filme);
 			Assert.fail();
 		} catch (LocadoraException e) {
-			assertThat(e.getMessage(), is("Usuario vazio"));
+			assertThat(e.getMessage(), CoreMatchers.is("Usuario vazio"));
 		}
 	}
 	
-
 	@Test
 	public void testLocacao_FilmeVazio() throws FilmeSemEstoqueException, LocadoraException{
 		//cenario
@@ -137,11 +142,10 @@ public class LocacaoServiceTest {
 		Locacao locacao = service.alugarFilme(usuario, filme);
 			
 		//verificacao
-		error.checkThat(locacao.getValor(), is(equalTo(13.5)));
-		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
-		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+		error.checkThat(locacao.getValor(), CoreMatchers.is(CoreMatchers.equalTo(13.5)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
 	}
-	
 	
 	@Test
   public void testeLocacao50desconto() throws Exception {
@@ -159,9 +163,9 @@ public class LocacaoServiceTest {
 		Locacao locacao = service.alugarFilme(usuario, filme);
 			
 		//verificacao
-		error.checkThat(locacao.getValor(), is(equalTo(17.0)));
-		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
-		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+		error.checkThat(locacao.getValor(), CoreMatchers.is(CoreMatchers.equalTo(17.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
 	}
 	
 	@Test
@@ -181,9 +185,9 @@ public class LocacaoServiceTest {
 		Locacao locacao = service.alugarFilme(usuario, filme);
 			
 		//verificacao
-		error.checkThat(locacao.getValor(), is(equalTo(19.0)));
-		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
-		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+		error.checkThat(locacao.getValor(), CoreMatchers.is(CoreMatchers.equalTo(19.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
 	}
 	
 	@Test
@@ -204,9 +208,9 @@ public class LocacaoServiceTest {
 		Locacao locacao = service.alugarFilme(usuario, filme);
 			
 		//verificacao
-		error.checkThat(locacao.getValor(), is(equalTo(19.0)));
-		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
-		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+		error.checkThat(locacao.getValor(), CoreMatchers.is(CoreMatchers.equalTo(19.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
 	}
 	@Test
   public void testeLocacao100desconto9Itens() throws Exception {
@@ -229,8 +233,29 @@ public class LocacaoServiceTest {
 		Locacao locacao = service.alugarFilme(usuario, filme);
 			
 		//verificacao
-		error.checkThat(locacao.getValor(), is(equalTo(52.0)));
-		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
-		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+		error.checkThat(locacao.getValor(), CoreMatchers.is(CoreMatchers.equalTo(52.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
 	}
+
+  @Test
+  public void semDevolucaoDomingo() throws FilmeSemEstoqueException, LocadoraException {
+    Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY));
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
+				Arrays.asList(
+						new Filme("Filme 2", 1, 4.0),
+						new Filme("Filme 1", 1, 5.0)
+				));
+		
+		//acao
+		Locacao locacao = service.alugarFilme(usuario, filme);
+		//verificacao
+		error.checkThat(locacao.getValor(), CoreMatchers.is(CoreMatchers.equalTo(9.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
+    error.checkThat(locacao.getDataRetorno().getDay(), CoreMatchers.not(CoreMatchers.equalTo(0)));
+	}
+	
 }

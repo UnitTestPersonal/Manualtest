@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="AssertTest" time="0.008" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="AssertTest" time="0.009" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.1+12-LTS"/>
@@ -61,5 +61,5 @@
     <property name="java.vendor.version" value="Corretto-17.0.1.12.1"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="AssertTest" name="test" time="0.008"/>
+  <testcase classname="AssertTest" name="test" time="0.009"/>
 </testsuite>
