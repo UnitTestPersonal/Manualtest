@@ -53,7 +53,14 @@ public class LocacaoServiceTest {
 	public void tearDown(){
     System.out.println("depois.");
 	}
+
 	
+	private static final Filme filme1 = new Filme("Filme 1", 1, 4.0);
+	private static final Filme filme2 = new Filme("Filme 2", 1, 5.0);
+	private static final Filme filme3 = new Filme("Filme 3", 1, 6.0);
+	private static final Filme filme4 = new Filme("Filme 4", 1, 7.0);
+	private static final Filme filme5 = new Filme("Filme 5", 1, 8.0);
+	private static final Filme filme6 = new Filme("Filme 6", 1, 9.0);
 	
 	  @BeforeClass
 		public static  void setupClass(){
@@ -71,8 +78,8 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Usuario 1");
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 2", 1, 4.0),
-						new Filme("Filme 1", 1, 5.0)
+						filme1,
+						filme2
 				));
 		
 		//acao
@@ -90,8 +97,8 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Usuario 1");
     LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 2", 0, 4.0),
-						new Filme("Filme 1", 1, 5.0)));
+						filme1,
+						new Filme("Filme 2", 0, 5.0)));
 
 		//acao
 		service.alugarFilme(usuario, filme);
@@ -104,8 +111,8 @@ public class LocacaoServiceTest {
 		//cenario
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 2", 0, 4.0),
-						new Filme("Filme 1", 1, 5.0)));
+						filme1,
+						filme2));
 		
 		//acao
 		try {
@@ -133,9 +140,9 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Usuario 1");
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 1", 1, 4.0),
-						new Filme("Filme 2", 1, 5.0),
-						new Filme("Filme 3", 1, 6.0)
+						filme1,
+						filme2,
+						filme3
 				));
 		
 		//acao
@@ -153,10 +160,10 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Usuario 1");
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 1", 1, 4.0),
-						new Filme("Filme 2", 1, 5.0),
-						new Filme("Filme 3", 1, 6.0),
-						new Filme("Filme 4", 1, 7.0)
+						filme1,
+						filme2,
+						filme3,
+						filme4
 				));
 		
 		//acao
@@ -174,11 +181,11 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Usuario 1");
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 1", 1, 4.0),
-						new Filme("Filme 2", 1, 5.0),
-						new Filme("Filme 3", 1, 6.0),
-						new Filme("Filme 4", 1, 7.0),
-						new Filme("Filme 5", 1, 8.0)
+						filme1,
+						filme2,
+						filme3,
+						filme4,
+						filme5
 				));
 		
 		//acao
@@ -196,12 +203,12 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Usuario 1");
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 1", 1, 4.0),
-						new Filme("Filme 2", 1, 5.0),
-						new Filme("Filme 3", 1, 6.0),
-						new Filme("Filme 4", 1, 7.0),
-						new Filme("Filme 5", 1, 8.0),
-						new Filme("Filme 6", 1, 9.0)
+						filme1,
+						filme2,
+						filme3,
+						filme4,
+						filme5,
+						filme6
 				));
 		
 		//acao
@@ -218,12 +225,12 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Usuario 1");
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 1", 1, 4.0),
-						new Filme("Filme 2", 1, 5.0),
-						new Filme("Filme 3", 1, 6.0),
-						new Filme("Filme 4", 1, 7.0),
-						new Filme("Filme 5", 1, 8.0),
-						new Filme("Filme 6", 1, 9.0),
+						filme1,
+						filme2,
+						filme3,
+						filme4,
+						filme5,
+						filme6,
 						new Filme("Filme 7", 1, 10.0),
 						new Filme("Filme 8", 1, 11.0),
 						new Filme("Filme 9", 1, 12.0)
@@ -245,8 +252,8 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Usuario 1");
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
-						new Filme("Filme 2", 1, 4.0),
-						new Filme("Filme 1", 1, 5.0)
+						filme1,
+						filme2
 				));
 		
 		//acao
