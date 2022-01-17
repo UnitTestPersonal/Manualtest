@@ -19,6 +19,7 @@ import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
+import br.ce.wcaquino.matcher.diaSemanMacther;
 import br.ce.wcaquino.utils.DataUtils;
 import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
 import java.util.Arrays;
@@ -263,6 +264,7 @@ public class LocacaoServiceTest {
 		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
 		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
     error.checkThat(locacao.getDataRetorno().getDay(), CoreMatchers.not(CoreMatchers.equalTo(0)));
+    error.checkThat(locacao.getDataRetorno(), new diaSemanMacther(Calendar.SUNDAY));
 	}
 	
 }
