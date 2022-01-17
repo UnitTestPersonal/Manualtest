@@ -20,8 +20,9 @@ import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
 import br.ce.wcaquino.matcher.diaSemanMacther;
+import static br.ce.wcaquino.matcher.matcherProperties.eHoje;
+import static br.ce.wcaquino.matcher.matcherProperties.eHojeComDiferencaDe1Dia;
 import br.ce.wcaquino.utils.DataUtils;
-import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.LinkedHashSet;
@@ -31,7 +32,6 @@ import org.junit.AfterClass;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 
 public class LocacaoServiceTest {
 
@@ -261,10 +261,10 @@ public class LocacaoServiceTest {
 		Locacao locacao = service.alugarFilme(usuario, filme);
 		//verificacao
 		error.checkThat(locacao.getValor(), CoreMatchers.is(CoreMatchers.equalTo(9.0)));
-		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
 		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
     error.checkThat(locacao.getDataRetorno().getDay(), CoreMatchers.not(CoreMatchers.equalTo(0)));
     error.checkThat(locacao.getDataRetorno(), new diaSemanMacther(Calendar.SUNDAY));
+		error.checkThat(eHojeComDiferencaDe1Dia(locacao.getDataRetorno()), CoreMatchers.is(true));
+		error.checkThat(locacao.getDataLocacao(), eHoje());
 	}
-	
 }

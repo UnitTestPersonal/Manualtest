@@ -1,4 +1,5 @@
 C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\exceptions\FilmeSemEstoqueException.java
+C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\matcher\diferencaDias.java
 C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\entidades\Locacao.java
 C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\servicos\Calculadora.java
 C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\utils\DataUtils.java
@@ -6,4 +7,6 @@ C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\w
 C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\entidades\Usuario.java
 C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\servicos\LocacaoService.java
 C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\exceptions\naoPodeDividirPorZeroException.java
+C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\matcher\diaSemanMacther.java
 C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\exceptions\LocadoraException.java
+C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios\src\main\java\br\ce\wcaquino\matcher\matcherProperties.java
