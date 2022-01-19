@@ -8,6 +8,7 @@ package br.ce.wcaquino.servicos;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
+import br.ce.wcaquino.servicos.builders.FilmeBuilder;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -41,12 +42,12 @@ public class CalculoValorLocacaoTest {
 	
 	private LocacaoService service;
 	
-	private static final Filme filme  = new Filme("Filme 1", 1, 4.0);
-	private static final Filme filme2 = new Filme("Filme 2", 1, 4.0);
-	private static final Filme filme3 = new Filme("Filme 3", 1, 4.0);
-	private static final Filme filme4 = new Filme("Filme 4", 1, 4.0);
-	private static final Filme filme5 = new Filme("Filme 5", 1, 4.0);
-	private static final Filme filme6 = new Filme("Filme 6", 1, 4.0);
+	private static final Filme filme  = FilmeBuilder.umFilme().comValor(4.0).comNome("1").agora();
+	private static final Filme filme2 = FilmeBuilder.umFilme().comValor(4.0).comNome("2").agora();
+	private static final Filme filme3 = FilmeBuilder.umFilme().comValor(4.0).comNome("3").agora();
+	private static final Filme filme4 = FilmeBuilder.umFilme().comValor(4.0).comNome("4").agora();
+	private static final Filme filme5 = FilmeBuilder.umFilme().comValor(4.0).comNome("5").agora();
+	private static final Filme filme6 = FilmeBuilder.umFilme().comValor(4.0).comNome("6").agora();
 	
 	@Parameters(name = "{2}")
 	public static Collection<Object[]> getParametros(){

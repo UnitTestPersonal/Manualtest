@@ -22,6 +22,8 @@ import br.ce.wcaquino.exceptions.LocadoraException;
 import br.ce.wcaquino.matcher.diaSemanMacther;
 import static br.ce.wcaquino.matcher.matcherProperties.eHoje;
 import static br.ce.wcaquino.matcher.matcherProperties.eHojeComDiferencaDe1Dia;
+import br.ce.wcaquino.servicos.builders.FilmeBuilder;
+import static br.ce.wcaquino.servicos.builders.usuarioBuilder.umUsuarioBuilder;
 import br.ce.wcaquino.utils.DataUtils;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -55,13 +57,12 @@ public class LocacaoServiceTest {
     System.out.println("depois.");
 	}
 
-	
-	private static final Filme filme1 = new Filme("Filme 1", 1, 4.0);
-	private static final Filme filme2 = new Filme("Filme 2", 1, 5.0);
-	private static final Filme filme3 = new Filme("Filme 3", 1, 6.0);
-	private static final Filme filme4 = new Filme("Filme 4", 1, 7.0);
-	private static final Filme filme5 = new Filme("Filme 5", 1, 8.0);
-	private static final Filme filme6 = new Filme("Filme 6", 1, 9.0);
+  private static final Filme filme1 = FilmeBuilder.umFilme().comValor(4.0).agora(); // new Filme("Filme 1", 1, 4.0);
+	private static final Filme filme2 = FilmeBuilder.umFilme().comValor(5.0).agora();//new Filme("Filme 2", 1, 5.0);
+	private static final Filme filme3 = FilmeBuilder.umFilme().comValor(6.0).agora();//new Filme("Filme 3", 1, 6.0);
+	private static final Filme filme4 = FilmeBuilder.umFilme().comValor(7.0).agora();//new Filme("Filme 4", 1, 7.0);
+	private static final Filme filme5 = FilmeBuilder.umFilme().comValor(8.0).agora();//new Filme("Filme 5", 1, 8.0);
+	private static final Filme filme6 = FilmeBuilder.umFilme().comValor(9.0).agora();//new Filme("Filme 6", 1, 9.0);
 	
 	  @BeforeClass
 		public static  void setupClass(){
@@ -76,7 +77,7 @@ public class LocacaoServiceTest {
   @Test
   public void testeLocacao() throws FilmeSemEstoqueException, LocadoraException  {
 		//cenario
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = umUsuarioBuilder().agora();
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
 						filme1,
@@ -95,7 +96,7 @@ public class LocacaoServiceTest {
 	@Test(expected = FilmeSemEstoqueException.class)
 	public void testLocacao_filmeSemEstoque() throws  LocadoraException, FilmeSemEstoqueException{
 		//cenario
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = umUsuarioBuilder().agora();
     LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
 						filme1,
@@ -127,7 +128,7 @@ public class LocacaoServiceTest {
 	@Test
 	public void testLocacao_FilmeVazio() throws FilmeSemEstoqueException, LocadoraException{
 		//cenario
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = umUsuarioBuilder().agora();
 		
 		exception.expect(LocadoraException.class);
 		exception.expectMessage("Filme vazio");
@@ -138,7 +139,7 @@ public class LocacaoServiceTest {
 	@Test
   public void testeLocacao25desconto() throws Exception {
 		//cenario
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = umUsuarioBuilder().agora();
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
 						filme1,
@@ -158,7 +159,7 @@ public class LocacaoServiceTest {
 	@Test
   public void testeLocacao50desconto() throws Exception {
 		//cenario
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = umUsuarioBuilder().agora();
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
 						filme1,
@@ -179,7 +180,7 @@ public class LocacaoServiceTest {
 	@Test
   public void testeLocacao75desconto() throws Exception {
 		//cenario
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = umUsuarioBuilder().agora();
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
 						filme1,
@@ -201,7 +202,7 @@ public class LocacaoServiceTest {
 	@Test
   public void testeLocacao100desconto() throws Exception {
 		//cenario
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = umUsuarioBuilder().agora();
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
 						filme1,
@@ -223,7 +224,7 @@ public class LocacaoServiceTest {
 	@Test
   public void testeLocacao100desconto9Itens() throws Exception {
 		//cenario
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = umUsuarioBuilder().agora();
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
 						filme1,
@@ -250,7 +251,7 @@ public class LocacaoServiceTest {
   public void semDevolucaoDomingo() throws FilmeSemEstoqueException, LocadoraException {
     Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY));
 		//cenario
-		Usuario usuario = new Usuario("Usuario 1");
+		Usuario usuario = umUsuarioBuilder().agora();
 		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
 				Arrays.asList(
 						filme1,
