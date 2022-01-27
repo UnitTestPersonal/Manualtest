@@ -2,6 +2,8 @@ package br.ce.wcaquino.servicos;
 
 
 
+import br.ce.wcaquino.daos.LocacaoDAO;
+import br.ce.wcaquino.daos.LocacaoDAOFake;
 import static br.ce.wcaquino.utils.DataUtils.isMesmaData;
 import static br.ce.wcaquino.utils.DataUtils.obterDataComDiferencaDias;
 import static org.junit.Assert.assertThat;
@@ -50,6 +52,7 @@ public class LocacaoServiceTest {
     System.out.println("antes");
 		 service = new LocacaoService();
     System.out.println(++counter);
+		service.setLocacao(new LocacaoDAOFake());
 	}
 
   @After

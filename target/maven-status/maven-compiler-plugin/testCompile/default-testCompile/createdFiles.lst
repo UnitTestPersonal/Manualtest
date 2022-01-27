@@ -1,3 +1,4 @@
 br\ce\wcaquino\servicos\OrdemTest.class
+br\ce\wcaquino\servicos\suite\SuiteExecução.class
 AssertTest.class
 br\ce\wcaquino\servicos\CalculadoraTest.class

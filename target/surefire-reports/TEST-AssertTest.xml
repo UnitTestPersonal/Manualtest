@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="AssertTest" time="0.011" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="AssertTest" time="0.027" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="java.vm.version" value="17.0.1+12-LTS"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk17.0.1_12\bin"/>
+    <property name="java.vm.version" value="11.0.14+9-LTS"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.14_9\bin"/>
     <property name="maven.multiModuleProjectDirectory" value="C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios"/>
     <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
@@ -17,7 +17,8 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Users\Alvaro\Documents\NetBeansProjects\TestesUnitarios"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
-    <property name="java.runtime.version" value="17.0.1+12-LTS"/>
+    <property name="java.runtime.version" value="11.0.14+9-LTS"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="C:\Users\Alvaro\AppData\Local\Temp\"/>
     <property name="line.separator" value="
@@ -28,38 +29,40 @@
     <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-12.5\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans-12.5\netbeans\java\maven\bin\..\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk17.0.1_12\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Amazon Corretto\jdk17.0.1_12\bin;C:\Program Files\Amazon Corretto\jdk11.0.13_8\bin;C:\Python310\Scripts\;C:\Python310\;C:\Program Files\Amazon Corretto\jdk17.0.0_35\bin;C:\Program Files\Amazon Corretto\jdk11.0.12_7\bin;C:\Program Files\Amazon Corretto\jdk16.0.2_7\bin;C:\Program Files\Amazon Corretto\jdk11.0.11_9\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\GnuPG\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\ProgramData\chocolatey\bin;C;C:\Program Files\TortoiseGit\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.4\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\heroku\bin;C:\Users\Alvaro\AppData\Local\Microsoft\WindowsApps;C:\Users\Alvaro\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Alvaro\.dotnet\tools;C:\Users\Alvaro\AppData\Local\GitHubDesktop\bin;C:\Users\Alvaro\AppData\Roaming\npm;."/>
+    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.14_9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Amazon Corretto\jdk11.0.14_9\bin;C:\Program Files\Amazon Corretto\jdk17.0.1_12\bin;C:\Program Files\Amazon Corretto\jdk11.0.13_8\bin;C:\Python310\Scripts\;C:\Python310\;C:\Program Files\Amazon Corretto\jdk17.0.0_35\bin;C:\Program Files\Amazon Corretto\jdk11.0.12_7\bin;C:\Program Files\Amazon Corretto\jdk16.0.2_7\bin;C:\Program Files\Amazon Corretto\jdk11.0.11_9\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\GnuPG\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\ProgramData\chocolatey\bin;C;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.4\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\heroku\bin;C:\Users\Alvaro\AppData\Local\Microsoft\WindowsApps;C:\Users\Alvaro\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Alvaro\.dotnet\tools;C:\Users\Alvaro\AppData\Local\GitHubDesktop\bin;C:\Users\Alvaro\AppData\Roaming\npm;."/>
     <property name="maven.conf" value="C:\Program Files\NetBeans-12.5\netbeans\java\maven\bin\../conf"/>
     <property name="jdk.debug" value="release"/>
-    <property name="java.class.version" value="61.0"/>
+    <property name="java.class.version" value="55.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.0"/>
     <property name="library.jansi.path" value="C:\Program Files\NetBeans-12.5\netbeans\java\maven\bin\..\lib\jansi-native"/>
     <property name="user.home" value="C:\Users\Alvaro"/>
     <property name="user.timezone" value="America/Sao_Paulo"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="file.encoding" value="Cp1252"/>
-    <property name="java.specification.version" value="17"/>
+    <property name="java.specification.version" value="11"/>
     <property name="user.name" value="Alvaro"/>
     <property name="java.class.path" value="C:\Program Files\NetBeans-12.5\netbeans\java\maven\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
-    <property name="java.vm.specification.version" value="17"/>
+    <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans-12.5\netbeans\java\maven-nblib\netbeans-eventspy.jar test"/>
-    <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk17.0.1_12"/>
+    <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk11.0.14_9"/>
     <property name="user.language" value="pt"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="java.version" value="17.0.1"/>
-    <property name="native.encoding" value="Cp1252"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="11.0.14"/>
     <property name="java.vendor" value="Amazon.com Inc."/>
     <property name="maven.home" value="C:\Program Files\NetBeans-12.5\netbeans\java\maven\bin\.."/>
     <property name="file.separator" value="\"/>
-    <property name="java.version.date" value="2021-10-19"/>
-    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-17/issues/"/>
+    <property name="java.version.date" value="2022-01-18"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-11/issues/"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="java.vendor.version" value="Corretto-17.0.1.12.1"/>
+    <property name="java.vendor.version" value="Corretto-11.0.14.9.1"/>
+    <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="AssertTest" name="test" time="0.011"/>
+  <testcase classname="AssertTest" name="test" time="0.027"/>
 </testsuite>

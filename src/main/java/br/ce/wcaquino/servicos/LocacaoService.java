@@ -1,5 +1,7 @@
 package br.ce.wcaquino.servicos;
 
+import br.ce.wcaquino.daos.LocacaoDAO;
+import br.ce.wcaquino.daos.LocacaoDAOFake;
 import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
 
 import java.util.Date;
@@ -13,7 +15,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 public class LocacaoService {
-
+	
+		LocacaoDAO dao;
+		
   public Locacao alugarFilme(Usuario usuario, HashSet<Filme> filmes)
       throws FilmeSemEstoqueException, LocadoraException {
 		if(usuario == null) {
@@ -34,9 +38,9 @@ public class LocacaoService {
 		dataEntrega = adicionarDias(dataEntrega, 1);
 		locacao.setDataRetorno(dataEntrega);
 		if(dataEntrega.getDay() == 0) dataEntrega = adicionarDias(dataEntrega, 1);
-		//Salvando a locacao...	
-		//TODO adicionar método para salvar
-		
+    // Salvando a locacao...
+    dao.salvar(locacao);
+
 		return locacao;
 	}
 	private double	semDesconto(LinkedList<Filme> filmes,double volta) throws LocadoraException{
@@ -122,5 +126,9 @@ public class LocacaoService {
 				volta += list.pop().getPrecoLocacao();
 			}
 			return desconto100(list,volta);
+	}
+
+	void setLocacao(LocacaoDAO dao) {
+		this.dao = dao;
 	}
 }
