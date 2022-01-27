@@ -3,7 +3,6 @@ package br.ce.wcaquino.servicos;
 
 
 import br.ce.wcaquino.daos.LocacaoDAO;
-import br.ce.wcaquino.daos.LocacaoDAOFake;
 import static br.ce.wcaquino.utils.DataUtils.isMesmaData;
 import static br.ce.wcaquino.utils.DataUtils.obterDataComDiferencaDias;
 import static org.junit.Assert.assertThat;
@@ -36,6 +35,7 @@ import org.junit.AfterClass;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.mockito.Mockito;
 
 public class LocacaoServiceTest {
 
@@ -52,7 +52,7 @@ public class LocacaoServiceTest {
     System.out.println("antes");
 		 service = new LocacaoService();
     System.out.println(++counter);
-		service.setLocacao(new LocacaoDAOFake());
+    service.setLocacao(Mockito.mock(LocacaoDAO.class));
 	}
 
   @After

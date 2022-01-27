@@ -1,4 +1,8 @@
 br\ce\wcaquino\servicos\OrdemTest.class
 br\ce\wcaquino\servicos\suite\SuiteExecução.class
+br\ce\wcaquino\servicos\CalculoValorLocacaoTest.class
 AssertTest.class
+br\ce\wcaquino\servicos\LocacaoServiceTest.class
+br\ce\wcaquino\servicos\builders\FilmeBuilder.class
+br\ce\wcaquino\servicos\builders\usuarioBuilder.class
 br\ce\wcaquino\servicos\CalculadoraTest.class
