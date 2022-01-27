@@ -53,6 +53,7 @@ public class LocacaoServiceTest {
 		 service = new LocacaoService();
     System.out.println(++counter);
     service.setLocacao(Mockito.mock(LocacaoDAO.class));
+    service.setSpc(Mockito.mock(SPCService.class));
 	}
 
   @After
@@ -271,4 +272,30 @@ public class LocacaoServiceTest {
 		error.checkThat(eHojeComDiferencaDe1Dia(locacao.getDataRetorno()), CoreMatchers.is(true));
 		error.checkThat(locacao.getDataLocacao(), eHoje());
 	}
+	
+	@Test
+  public void naoDeveAlugarFilmesParaNegativadosSPC() throws FilmeSemEstoqueException, LocadoraException  {
+		//cenario
+		Usuario usuario = umUsuarioBuilder().agora();
+		LinkedHashSet<Filme> filme = new LinkedHashSet<>(
+				Arrays.asList(
+						filme1,
+						filme2
+				));
+
+    Mockito.when(service.spc.possuinegativacao(usuario)).thenReturn(true);
+
+		//acao
+		
+    exception.expect(LocadoraException.class);
+		exception.expectMessage("Usuario negativado");
+		
+		Locacao locacao = service.alugarFilme(usuario, filme);
+
+		//verificacao
+		error.checkThat(locacao.getValor(), CoreMatchers.is(CoreMatchers.equalTo(9.0)));
+		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
+		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), CoreMatchers.is(true));
+	}
+	
 }

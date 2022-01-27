@@ -17,12 +17,17 @@ import java.util.LinkedList;
 public class LocacaoService {
 	
 		LocacaoDAO dao;
+		SPCService spc;
 		
   public Locacao alugarFilme(Usuario usuario, HashSet<Filme> filmes)
       throws FilmeSemEstoqueException, LocadoraException {
 		if(usuario == null) {
 			throw new LocadoraException("Usuario vazio");
+		}else if(spc.possuinegativacao(usuario)){
+			throw new LocadoraException("Usuario negativado");
 		}
+		
+		
 		
 		if(filmes == null ||filmes.isEmpty()) {
 			throw new LocadoraException("Filme vazio");
@@ -131,4 +136,9 @@ public class LocacaoService {
 	void setLocacao(LocacaoDAO dao) {
 		this.dao = dao;
 	}
+
+	public void setSpc(SPCService spc) {
+		this.spc = spc;
+	}
+	
 }
